@@ -4,36 +4,28 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] float speed = 5f;
-    Vector3 forward;
-    Vector3 right;
+    [SerializeField] CharacterController controller;
+    [SerializeField] Transform cam;
+    [SerializeField] float speed = 6f;
+    [SerializeField] float turnSmoothTime = 0.1f;
+    float turnSmoothVelocity;
 
     void Update() {
-        CameraForward();
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        float vertical = Input.GetAxisRaw("Vertical");
+        Vector3 direction = new Vector3 (horizontal, 0, vertical).normalized;
+
+        if (direction.magnitude >= 0.1f) {
+            //player rotation
+            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
+            //smoothing rotation
+            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
+            transform.rotation = Quaternion.Euler(0f, angle, 0f);
+
+            Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+
+            //player move
+            controller.Move(moveDir.normalized * speed * Time.deltaTime);
+        }
     }
-
-    void FixedUpdate() {
-        Move();
-    }
-
-    void Move() {
-        Vector3 direction = new Vector3 (Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        Vector3 RightMovement = right * speed * Time.deltaTime * Input.GetAxis("Horizontal");
-
-        Vector3 UpMovement = forward * speed * Time.deltaTime * Input.GetAxis("Vertical");
-
-        Vector3 heading = Vector3.Normalize(RightMovement + UpMovement);
-        transform.forward = heading;
-        transform.position += RightMovement;
-        transform.position += UpMovement;
-    }
-
-    void CameraForward() {
-        forward = Camera.main.transform.forward;
-        forward.y = 0;
-        forward = Vector3.Normalize(forward);
-        right = Quaternion.Euler(new Vector3 (0, 90, 0)) * forward;
-    }
-
-
 }
