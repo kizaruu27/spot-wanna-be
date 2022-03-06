@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1697580075307457561}
   - component: {fileID: 8411865747196386452}
   - component: {fileID: 6091339047534319287}
+  - component: {fileID: 2640283150652872518}
   m_Layer: 0
   m_Name: Sphere Blueprint
   m_TagString: Untagged
@@ -107,3 +108,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 5960180230535819671, guid: 6ca92c274bdf230478fc2b3760fe4241, type: 3}
+--- !u!114 &2640283150652872518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6307412564326798963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65f8e9872a8a9f04990f63f50a41190a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
