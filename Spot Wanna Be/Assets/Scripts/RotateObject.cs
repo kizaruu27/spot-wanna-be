@@ -13,10 +13,10 @@ public class RotateObject : MonoBehaviour
 
     void Update() {
         if (isRotating) {
-            if (Input.GetKey(KeyCode.L)) {
+            if (Input.GetKey(KeyCode.E)) {
                 transform.Rotate(Vector3.up * -100f * Time.deltaTime);
             }
-            if (Input.GetKey(KeyCode.K)) {
+            if (Input.GetKey(KeyCode.Q)) {
                 transform.Rotate(Vector3.up * 100f * Time.deltaTime);
             }
             if (Input.GetKeyDown(KeyCode.Space)) {

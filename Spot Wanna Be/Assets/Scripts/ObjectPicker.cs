@@ -8,7 +8,6 @@ public class ObjectPicker : MonoBehaviour
     [SerializeField] bool isSelected = false;
     [SerializeField] Transform targetObject;
     [SerializeField] Camera cam;
-    [SerializeField] GameObject editButton;
     Interactable interactable;
     UnityEvent onInteract;
     
@@ -32,10 +31,6 @@ public class ObjectPicker : MonoBehaviour
             }
         }
 
-    }
-
-    void setObject(Transform _object) {
-        targetObject = _object;
     }
 
     void ResetObject() {
