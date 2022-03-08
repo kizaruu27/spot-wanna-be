@@ -31,7 +31,7 @@ public class MoveObject : MonoBehaviour
                 transform.position = new Vector3 (transform.position.x, 20f, transform.position.z);
                 boxCollider.isTrigger = true;
 
-                if (Input.GetKeyDown(KeyCode.Space)) {
+                if (Input.GetMouseButtonDown(0)) {
                     isMoving = false;
                     boxCollider.isTrigger = false;
                 }
