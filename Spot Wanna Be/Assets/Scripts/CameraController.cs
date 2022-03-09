@@ -22,6 +22,13 @@ public class CameraController : MonoBehaviour
 	[SerializeField] bool useMouseInput;
 	[SerializeField] bool useKeyboardInput;
 
+	//zoom in offset variables
+	float zoomInOffsetY = 4f;
+	float zoomInOffsetZ = -11f;
+
+	//zoom out offset variables
+	float zoomOutOffsetY = 39f;
+	float zoomOutOffsetZ = -46f;
 
 	void Start()
 	{
@@ -71,6 +78,20 @@ public class CameraController : MonoBehaviour
 	void HandleMouseInput() {
 		if (Input.mouseScrollDelta.y != 0) {
 			newZoom += Input.mouseScrollDelta.y * zoomAmmount;
+
+			//zoom in offset
+			if (newZoom.y < zoomInOffsetY && newZoom.z > zoomInOffsetZ) {
+				newZoom.y = zoomInOffsetY;
+				newZoom.z = zoomInOffsetZ;
+			}
+
+			//zoom out offset
+			if (newZoom.y > zoomOutOffsetY && newZoom.z < zoomOutOffsetZ) {
+				newZoom.y = zoomOutOffsetY;
+				newZoom.z = zoomOutOffsetZ;
+			}	
+
+
 		}
 
 		 if (Input.GetMouseButtonDown(0)) {
