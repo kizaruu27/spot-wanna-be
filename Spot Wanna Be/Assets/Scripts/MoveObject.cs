@@ -24,7 +24,7 @@ public class MoveObject : MonoBehaviour
 		if (Physics.Raycast(ray, out hit, 40000, (1 << 8))) {
 			if (isMoving) {
 				transform.position = hit.point;
-				transform.position = new Vector3 (transform.position.x, 20f, transform.position.z);
+				transform.position = new Vector3 (transform.position.x, 1.3f, transform.position.z);
 				boxCollider.isTrigger = true;
 
 				if (Input.GetMouseButtonDown(0)) {

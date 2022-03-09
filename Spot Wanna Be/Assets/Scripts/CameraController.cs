@@ -17,6 +17,10 @@ public class CameraController : MonoBehaviour
 	public Vector3 dragCurrentPosition;
 	public Vector3 rotateStartPosition;
 	public Vector3 rotateCurrentPosition;
+	
+	[Header("Choose Your Input")]
+	[SerializeField] bool useMouseInput;
+	[SerializeField] bool useKeyboardInput;
 
 
 	void Start()
