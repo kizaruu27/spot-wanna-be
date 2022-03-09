@@ -15,7 +15,7 @@ public class Blueprint : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, 50000.0f, (1 << 8))) {
             transform.position = hit.point;
-            transform.position = new Vector3 (transform.position.x, 20f, transform.position.z);
+            transform.position = new Vector3 (transform.position.x, 1.3f, transform.position.z);
         }
 
     }
@@ -27,7 +27,7 @@ public class Blueprint : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, 50000.0f, (1 << 8))) {
             transform.position = hit.point;
-            transform.position = new Vector3 (transform.position.x, 20f, transform.position.z);
+            transform.position = new Vector3 (transform.position.x, 1.3f, transform.position.z);
         }
 
         if (Input.GetMouseButton(0)) {
