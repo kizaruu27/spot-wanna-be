@@ -136,9 +136,9 @@ public class CameraController : MonoBehaviour
 			rotateStartPosition = rotateCurrentPosition;
 
 			newRotation *= Quaternion.Euler(Vector3.up * (-difference.x / 5f));
+
 		} else {
 			Cursor.visible = true;
-
 		}
 	}
 }
