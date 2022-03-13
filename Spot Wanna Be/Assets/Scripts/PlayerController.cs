@@ -12,6 +12,13 @@ public class PlayerController : MonoBehaviour
     float velocityY = 0f;
     float turnSmoothVelocity;
 
+    Animator anim;
+
+    void Start()
+    {
+        anim = GetComponentInChildren<Animator>();
+    }
+
     void Update() {
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
@@ -34,6 +41,11 @@ public class PlayerController : MonoBehaviour
             }
 
             velocityY += gravity * Time.deltaTime;
+
+            anim.SetBool("isWalking", true);
+        } 
+        else {
+            anim.SetBool("isWalking", false);
         }
     }
 }
