@@ -4,20 +4,22 @@ using UnityEngine;
 
 public class MovePlayerToPosition : MonoBehaviour
 {
-    [SerializeField] Transform player;
-    [SerializeField] Transform sitPosition;
-
-    Animator anim;
+    //Animator anim;
+    GameObject Player;
+    PlayerAnimations anim;
 
     // Start is called before the first frame update
     void Start()
     {
-        anim = GetComponentInChildren<Animator>();
+        //anim = GetComponentInChildren<Animator>();
+        Player = GameObject.FindGameObjectWithTag("Player");
+        anim = FindObjectOfType<PlayerAnimations>();
     }
 
-    public void SitDown() {
-        anim.SetTrigger("isSitting");
-        player.position = sitPosition.transform.position;
-        player.rotation = sitPosition.transform.rotation;
+    public void SitDown() 
+    {
+        anim.PlayerSit();
+        Player.transform.position = transform.position;
+        Player.transform.rotation = transform.rotation;
     }
 }

@@ -9,6 +9,7 @@ public class Blueprint : MonoBehaviour
     [SerializeField] GameObject prefab;
     [SerializeField] Material warningMaterial, defaultMaterial;
     [SerializeField] bool isCollide;
+    [SerializeField] float Ypos;
     Renderer rend;
     
     
@@ -26,7 +27,7 @@ public class Blueprint : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, 50000.0f, (1 << 8))) {
             transform.position = hit.point;
-            transform.position = new Vector3 (transform.position.x, 1.3f, transform.position.z);
+            transform.position = new Vector3 (transform.position.x, Ypos, transform.position.z);
         }
 
     }
@@ -38,7 +39,7 @@ public class Blueprint : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, 50000.0f, (1 << 8))) {
             transform.position = hit.point;
-            transform.position = new Vector3 (transform.position.x, 1.3f, transform.position.z);
+            transform.position = new Vector3 (transform.position.x, Ypos, transform.position.z);
         }
 
         if (Input.GetMouseButton(0) && !isCollide) {

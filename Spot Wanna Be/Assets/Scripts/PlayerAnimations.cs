@@ -2,9 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerReaction : MonoBehaviour
+public class PlayerAnimations : MonoBehaviour
 {
+    public static PlayerAnimations instance;
     Animator anim;
+    public bool isSitting;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -15,5 +22,10 @@ public class PlayerReaction : MonoBehaviour
     public void PlayerDance()
     {
         anim.SetTrigger("Dance");
+    }
+
+    public void PlayerSit()
+    {
+        anim.SetTrigger("isSitting");
     }
 }

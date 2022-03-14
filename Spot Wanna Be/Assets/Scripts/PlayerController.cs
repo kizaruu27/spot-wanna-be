@@ -41,8 +41,14 @@ public class PlayerController : MonoBehaviour
             }
 
             velocityY += gravity * Time.deltaTime;
+            
+            //validate player isn't sitting
+            PlayerAnimations.instance.isSitting = false;
 
+            
             anim.SetBool("isWalking", true);
+            
+
         } 
         else {
             anim.SetBool("isWalking", false);
