@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] CharacterController controller;
-    [SerializeField] Transform cam;
+    Camera cam;
     [SerializeField] float speed = 6f;
     [SerializeField] float turnSmoothTime = 0.1f;
     [SerializeField] float gravity = -13f;
@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         anim = GetComponentInChildren<Animator>();
+        cam = Camera.main;
     }
 
     void Update() {
@@ -26,7 +27,7 @@ public class PlayerController : MonoBehaviour
 
         if (direction.magnitude >= 0.1f) {
             //player rotation
-            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
+            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.transform.eulerAngles.y;
             //smoothing rotation
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
@@ -40,15 +41,8 @@ public class PlayerController : MonoBehaviour
                 velocityY = 0f;
             }
 
-            velocityY += gravity * Time.deltaTime;
-            
-            //validate player isn't sitting
-            PlayerAnimations.instance.isSitting = false;
-
-            
+            velocityY += gravity * Time.deltaTime;            
             anim.SetBool("isWalking", true);
-            
-
         } 
         else {
             anim.SetBool("isWalking", false);

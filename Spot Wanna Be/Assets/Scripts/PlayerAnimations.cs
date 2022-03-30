@@ -8,11 +8,6 @@ public class PlayerAnimations : MonoBehaviour
     Animator anim;
     public bool isSitting;
 
-    private void Awake()
-    {
-        instance = this;
-    }
-
     // Start is called before the first frame update
     void Start()
     {

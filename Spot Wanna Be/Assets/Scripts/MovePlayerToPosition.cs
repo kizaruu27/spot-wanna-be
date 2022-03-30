@@ -11,7 +11,6 @@ public class MovePlayerToPosition : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //anim = GetComponentInChildren<Animator>();
         Player = GameObject.FindGameObjectWithTag("Player");
         anim = FindObjectOfType<PlayerAnimations>();
     }

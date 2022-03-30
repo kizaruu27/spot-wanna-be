@@ -203,6 +203,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isMoving: 0
+  YPos: 2.1
 --- !u!65 &7894044827001928431
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -111,6 +111,7 @@ MonoBehaviour:
   warningMaterial: {fileID: 2100000, guid: 00f7ca2a54f0e5c48bdf48d2669f68bd, type: 2}
   defaultMaterial: {fileID: 2100000, guid: 91d16372053426d41b2a4084a84fcc6c, type: 2}
   isCollide: 0
+  Ypos: 2.1
 --- !u!54 &1400255803966088300
 Rigidbody:
   m_ObjectHideFlags: 0
